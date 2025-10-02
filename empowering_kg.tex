@@ -1,0 +1,173 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{Empowering Digital Library Management through Knowledge Graphs}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Digital libraries are huge bodies of books, journals, multimedia and metadata which require complex methods of organization and retrieval.  The traditional key word search cannot be used to find resources because of the complexity of relationship that exists between them. This dilemma is a clever solution using the knowledge graphs since it enables semantic search and creating meaningful relations between the related objects. Knowledge graphs enhance information retrieval, personalization of recommendation and smooth integration of information into various systems. The paper has described the advantages of knowledge graphs in digital libraries and how it has affected the search, discovery and long-term preservation process. It outlines various key implementation steps such as data acquisition, ontology/schema design and integration with existing services. Real world experience Case studies of university, public and special libraries demonstrate practical applications with increased discovery, user engagement and preservation results. The discussion also addresses challenges, including data quality, consistency, scalability, and system performance. Standards and models such as RDF, RDFS/OWL, SKOS, SPARQL, JSON-LD, BIBFRAME, Dublin Core, Europeana Data Model, CIDOC CRM, PREMIS, and IIIF are reviewed to ensure interoperability and compliance with FAIR data principles. Knowledge graphs are shown to organize works, authors, subjects, and places in a machine-readable graph, providing precise answers and richer context. Transforming libraries from static repositories into intelligent, connected systems, knowledge graphs establish active knowledge hubs that advance research, learning, and cultural preservation. This article explores the true potential of information in the digital age and how knowledge graphs can revolutionize the organization, access, and discovery of information within digital libraries.
+\end{abstract}
+
+\textbf{Keywords:} Semantic Search, Ontology, Information Retrieval, Data Integration, Linked data, BIBFRAME, FAIR
+
+\section{Introduction}
+A digital library should do more than store records. It should connect concepts, people, places, and events meaningfully. A knowledge graph represents knowledge as entities and relationships. It supports reasoning, flexible queries, and contextual discovery. Knowledge graphs have advanced in academia and industry and now provide stable models, standards, and library tools. A knowledge graph unifies descriptive, administrative, and preservation metadata in libraries. It aligns controlled vocabularies and links to global authority hubs. Information becomes machine-readable for discovery, analytics, and services. Modern knowledge graphs follow W3C standards. RDF structures data. RDFS/OWL defines semantics. SKOS supports knowledge organization. SPARQL manages queries. JSON-LD enables web-native data exchange. These standards ensure interoperability across institutions and platforms.
+
+A knowledge graph provides precise answers and enables exploration of related exhibitions, places, and creators. It supports annotation, recommendation, and visualization, with provenance and standards-compliant data. Information is organized as entities and relationships, which makes it easier to understand and reuse. Concepts are linked instead of presented as isolated facts, allowing machines and humans to explore knowledge more intelligently. In digital libraries, a knowledge graph adds accuracy, context, and flexibility. Related authors, subjects, and themes are connected to support semantic search that interprets queries and improves accessibility. Metadata from books, articles, journals, and multimedia is integrated into a unified graph, helping librarians, researchers, and students navigate complex collections. Interoperability is supported by linking library systems with external databases and repositories, creating a wider digital knowledge environment. Empowering digital libraries with knowledge graph means moving from passive storage to intelligent knowledge organization. A knowledge graph enables smarter search, better recommendations, and more substantial support for research and learning. Transparency, trust, and sustainability are improved by making data relationships visible. As digital libraries expand, the knowledge graph transforms them into dynamic knowledge hubs that drive discovery and innovation.
+
+\section{Background and Standards Landscape}
+Knowledge faces different digital library challenges, such as information overload, static catalogs, and limited discovery systems. By addressing these challenges, the digital library becomes a true knowledge hub. To meet these challenges, digital libraries follow the following standards, principles, and models:
+
+\subsection{Core web standards}
+RDF 1.1 provides the basic graph data model. RDFS and OWL add schema and ontology features. SKOS is used to model thesauri and subject schemes. SPARQL is used to query graphs. JSON-LD carries linked data on the web. These standards are vendor-neutral and stable \cite{zhang2024review}.
+
+\subsection{Library and heritage models}
+Dublin Core is widely used for resource description. BIBFRAME represents bibliographic data as a web-first graph. The Europeana Data Model (EDM) brings together European cultural heritage metadata. CIDOC CRM (ISO 21127) captures detailed event and entity semantics for museums and heritage. PREMIS documents preservation events, rights, and agents. IIIF provides APIs for standardized presentation and image delivery. Its version 3.0 aligns with JSON-LD and Web Annotation \cite{wang2019kgat}.
+
+\subsection{FAIR alignment}
+The ‘FAIR principles’ refer to ‘Findable’, ‘Accessible’, ‘Interoperable’, and ‘Reusable', which are now part of policy and practice for research and cultural heritage data encoding identifiers, semantics, provenance, and links \cite{wilkinson2016fair}.
+
+\section{Benefits for Digital Library Management}
+Knowledge graphs, which improve search and discovery in digital libraries, enhance personalized recommendations. These also support integration and interoperability. It transforms libraries into intelligent systems that become dynamic knowledge hubs that support research, learning, and innovation. The following subsections highlight key use cases:
+
+\subsection{Metadata Enrichment and Curation}
+Curating bibliographic metadata is resource-intensive, often requiring manual correction, normalization, and enrichment. KG-based systems automate such processes by providing automated recommendations. As an example, the system may be able to suggest missing citations, suggest links to related datasets, or suggest controlled vocabulary terms to use as indexing. Such proactive enhancements result in the fact that less work is needed regarding the curators, and records are more abundant and complete in their form. In addition, automated enrichment is useful in terms of scalability of maintenance of bulk data, and libraries and repositories can maintain high quality metadata at reduced costs and reduced turnaround times.
+
+\subsection{Authority linking}
+Authority linking is another connection of library data with such sources as VIAF, Wikidata, Library of Congress (id.loc.gov), Getty AAT, and GeoNames. These hubs offer permanent names and labels that are multilingual. It improves search, clustering, and navigation across collections \cite{auer2024orkg}. Author name ambiguity is a persistent challenge in bibliographic systems, where multiple individuals may share similar names or a single author may publish under variations of their name. A KG addresses this by creating author nodes linked to unique identifiers (such as ORCID), enriched with affiliation histories. It supports reliable bibliometric measures like citation counts, h-index calculations, and co-authorship networks. Beyond metrics, the KG also facilitates collaboration analysis, expert finding, and mapping of research communities. For instance, institutions can identify potential collaborators by analyzing shared co-authorship paths and thematic overlaps revealed through the graph.
+
+\subsection{Data integration and interoperability}
+Knowledge graphs integrate data from multiple sources like MARC, repository metadata, exhibition records, and preservation logs. Connectors such as OAI-PMH and IIIF make items and manifests consistent. JSON-LD compaction keeps web applications simple. SPARQL and GraphQL endpoints allow analytics, dashboards, and services. Europeana shows how large-scale aggregation works using the EDM with IIIF to standardize presentation for images, audio, and video \cite{iiif2025}. The value of a KG increases significantly when it is published using standardized vocabularies and linked data principles. The KG can interoperate with external repositories and infrastructures by aligning entities with global identifiers (such as VIAF for authors, Wikidata for concepts, or CrossRef for publications). This integration allows institutional repositories, national catalogues, and global scholarly platforms to exchange and reuse data seamlessly. For example, a KG built from LIS journals in one country could be linked to international databases, enhancing the visibility and discoverability of local research. Moreover, linked open data publishing fosters transparency, reproducibility, and the broader integration of LIS scholarship into the global knowledge ecosystem.
+
+\subsection{Improved search and discovery}
+Graph-based discovery goes beyond keyword matching. It uses works, editions, authors, subjects, and places. These relationships make queries more precise and create dynamic search facets. Search results become richer and more meaningful when library knowledge graphs are connected to external scholarly and cultural graphs. Studies show that faceted search over federated scholarly knowledge graphs gives users more accurate and adaptable results \cite{heidari2021federation}. Traditional search systems often rely on keyword matching, which limits retrieval of relevant information when synonyms, ambiguous terms, or complex queries are involved. KG-powered search introduces a semantic dimension, allowing for concept-based exploration. For instance, a researcher could query, ``show articles by authors affiliated with Indian universities on metadata standards,'' and the KG would retrieve results by traversing graph relationships that connect authors, affiliations, and subject topics. Beyond simple keyword matches, users can refine results through faceted navigation (e.g., filtering by journal, institution, or year) or explore graph neighborhoods to uncover related entities. It enhances discoverability by making hidden relationships explicit, ultimately supporting deeper insights and more efficient literature retrieval. Knowledge graph-based systems support personalized and transparent recommendations. Typed relationships such as ``influencedBy’’, “setInPlace”, and “aboutPeriod” are used to generate meaningful links. User signals are also incorporated to provide explainable suggestions. This feature is important for public institutions. Research demonstrates that knowledge graph-based recommendation improves accuracy and interpretability across different domains. These benefits apply directly to library book and media discovery \cite{hahn2020data}.
+
+\subsection{Research Trend and Topic Evolution Analysis}
+A KG enriched with normalized topics and temporal metadata provides a robust framework for analyzing how research areas evolve. Linking articles to standardized subjects allows the computation of topics such as emergence, decline, and interdisciplinary. For example, the rise of “semantic interoperability” as a theme in LIS journals can be traced alongside its connections to adjacent domains such as digital libraries or information retrieval. Topics network visualization through time also allows researchers and policymakers to understand areas that are emerging, funding priorities, or areas of knowledge gap to determine. It allows proper assignment of contributions, which justify such reliable bibliometric indicators as citation counts, h-index computations and co-authorship networks. In addition to measures, the KG also supports collaboration analysis, finding experts, as well as mapping research communities. As an example, one can consider institutions that can find possible partners based on common co-authorship patterns and common themes disclosed in the graph.
+
+\subsection{Author Disambiguation}
+Author name ambiguity is a long-standing problem of bibliographic systems with many persons sharing similar names or one author using different forms of their name. One way a KG can do this is by forming author nodes with unique identifiers (like ORCID), histories of affiliation.
+
+\section{Implementation Blueprint}
+The introduction of knowledge graphs into the digital library management can be accompanied by a thorough planning and other stages.
+
+\subsection{Data acquisition and preparation}
+The initial step will be to obtain and process data to be used in the creation of knowledge graphs. Books, articles, journals, multimedia resources and user-created metadata are stored in a digital library. This data must be collected from different sources and cleaned to remove duplicates, and inconsistencies. The information should be structured so that it can be linked meaningfully. High-quality data ensures the knowledge graph is reliable, accurate, and valuable for librarians and users. Start with an inventory of data sources such as ILS/ERM (MARC/MARCXML exports), repository platforms (Dublin Core/Qualified DC), archival finding aids (EAD), image servers (IIIF), and preservation systems (PREMIS). Normalize encodings and identifiers, map local fields to shared vocabularies, and record provenance for each transformation. Apply entity resolution to match names with VIAF or Wikidata and places with Geo-Names—record links as RDF with versioned evidence to support audits \cite{isaac2013europeana}. For digitized media, create IIIF Presentation 3.0 manifests directly from the knowledge graph or metadata store. IIIF 3.0 supports W3C Web Annotation and JSON-LD 1.1, simplifying integration with annotations, geo-location, and time-based media \cite{iiifapi}.
+
+\subsection{Ontology development and schema design}
+The second step is to develop the ontology and schema design for the knowledge graph. Ontology is a formal model that defines a domain's concepts, entities, and relationships. Digital libraries include authors, subjects, publications, keywords, and their connections. Schema design ensures that the structure reflects how knowledge is organized. Controlled vocabularies, standards, and taxonomies create a consistent model. A good ontology helps link data, discover new connections, and support advanced search. Use a layered approach:
+
+Base graph and identifiers - RDF/OWL with persistent URIs.
+
+Descriptive layer - BIBFRAME, Dublin Core, and schema.org, where needed.
+
+Aggregation layer - Europeana Data Model (EDM) for cross-institutional mapping.
+
+Heritage layer - CIDOC CRM events for creation, acquisition, and exhibitions.
+
+Preservation layer - PREMIS for objects, events, rights, and agents.
+
+Vocabulary layer - SKOS for subjects, AAT, and LCSH concepts.
+
+Keep local extensions minimal and reuse community terms. Documentation from Europeana, BIBFRAME, and CIDOC CRM provides patterns and mappings for common library scenarios \cite{ji2020survey}.
+
+\subsection{Storage, querying, and performance}
+The third step is to store the knowledge graph and optimize querying and performance. Digital libraries use cataloging systems, metadata repositories, and search engines. The knowledge graph should integrate with these systems without replacing them. Integration improves search, enables personalized recommendations, and provides better resource connections. It also allows interoperability with external systems, including other libraries and research databases. Choose infrastructure based on scale and workload:
+
+RDF triple stores (e.g., Virtuoso, GraphDB, and Blazegraph) for SPARQL queries over large graphs.
+
+Property graph engines (e.g., Neo4j) for path analytics or machine learning pipelines.
+
+Hybrid systems that expose SPARQL, GraphQL, and materialized JSON-LD for web apps and APIs. Plan indexing strategies, named graphs for provenance, and caching for popular queries. For large-scale systems, cluster configurations and well-designed queries are essential for low latency. For example, placing the SPARQL query, the linked data can be retrieved from DBpedia.
+
+\subsection{Integration with existing systems}
+The final step is the integration with existing systems. Each stage supports this integration, like data preparation, ontology development, schema design, storage, and querying. Knowledge graphs allow libraries to move from simple data storage to intelligent knowledge connections. It makes libraries smarter, more connected, and more valuable for researchers, students, and the public. Expose the knowledge graph as an internal “knowledge fabric” rather than a single monolithic system. Publish SPARQL endpoints, GraphQL interfaces, IIIF endpoints, and REST/JSON-LD services. Integrate with discovery layers through enrichment APIs. Update authority data in the ILS. Use IIIF and Web Annotation to power exhibitions, timelines, and maps. Europeana’s IIIF implementation shows how EDM can be converted to IIIF manifests, including audiovisual content in version 3.0.
+
+\section{Case Studies}
+Knowledge graphs in digital library management are best understood through real-world examples. The following examples show that many types of libraries have started adopting this technology to improve services and enhance user experience: 
+
+\subsection{Europeana}
+Europeana aggregates metadata from thousands of European institutions. It uses the European Data Model to harmonize descriptions and relationships. The platform supports IIIF-based presentation, generating manifests from EDM and managing images, audio, and video. This standards-based knowledge graph enables multilingual discovery and cross-collection narratives.
+
+\subsection{Share-VDE and LD4P}
+The Share-VDE program (with the Sapientia Cluster) and the US-based LD4P initiative convert MARC data to BIBFRAME. It produces institution-scale knowledge graphs that interlink local authority clusters with global identifiers. This results in entity-based discovery, improved authority control, and collaborative metadata refinement across research libraries \cite{hogan2022kg}.
+
+\subsection{Machine-actionable scholarly communication}
+The Open Research Knowledge Graph represents research contributions as structured, comparable entities. It integrates context from multiple infrastructures such as ORCID, Data Cite, and Wikidata. ORKG shows how a digital library can move beyond documents to machine-actionable knowledge. It supports faceted comparisons and dashboards for exploration. Recent developments include GraphQL federation and user interface components to enrich context \cite{haris2021federating}. 
+
+\subsection{University Libraries}
+University libraries manage extensive collections of books, journals, theses, and research papers. A university library built a knowledge graph to connect authors, research topics, and publications. For example, when a student searched for a research topic, the system suggested relevant theses, journal articles, and faculty publications. This improved search results, supported research collaboration, and saved users time.
+
+\subsection{Public Libraries}
+Public libraries serve diverse communities with varied interests. A public library improved its catalog as a graph of knowledge, connecting books, authors, genres, themes, and multimedia materials. When a user borrowed a book, the system recommended other books by the same author, similar themes, or related movies. This personalized recommendation system increased user satisfaction and library engagement.
+
+\subsection{Special Libraries}
+Special libraries, including museums and archives, handle rare and unique collections. One example is a knowledge graph created to link historical documents, images, and artifacts. The correlations in the graph revealed relationships between events, people, and places.
+
+\section{Challenges and Future Directions}
+Knowledge graphs in digital library management have many benefits, but are fraught with difficulties. Knowledge graph may yield incorrect results when the quality of the data is poor. To rectify this, libraries are supposed to have strict data cleaning, validation and controlled vocabularies. It is also cross-standard between metadata standards to make the knowledge graph reliable and trustworthy. Scalability and performance is another difficulty. When digital libraries are increased, they have massive collections of data. The process of creating and operating a graph of millions of entities and relations requires powerful computing capabilities. The performance problems can be manifested when running complicated queries, the integration of various data sources, or the support of a great number of users at the same time. Libraries require a high storage system, the best algorithms, and scalable platform to cope with massive knowledge graphs. In the absence of these, the system might slow down and become less useful to the users. In the future, there are numerous ways in which knowledge graph technology can be improved. AI and ML can be used to automate the cleaning of data, entity recognition and relationship extraction. Enhanced visualization devices have the capability of simplifying exploration and making it more intuitive. Search will become brighter and closer to the human understanding with the integration of natural language processing. Tieing up knowledge graphs within libraries and external repositories, research databases and other knowledge networks around the globe will become less challenging due to standards and interoperability frameworks of linked data. High-quality knowledge graphs also require explicit governance. It includes modeling guidelines, identifier minting rules, controlled vocabularies, OWL validation, and change management. Surveys on knowledge graph quality management highlight accuracy, completeness, consistency, and trust as key factors \cite{xue2022quality}. Libraries should use quality dashboards and sampling workflows to monitor these over time. Ethical stewardship is also important. Libraries should ensure transparency of recommendations, provide provenance for automated enrichment, and include ways to report and correct errors. It addresses entity identity at scale. Linking to VIAF, id.loc.gov, and Wikidata helps, but variant forms, homonyms, and multilingual labels can still cause problems. Record linkage should store evidence such as match scores and sources and remain reversible \cite{rdf11}. Studies on knowledge graph-based faceting and ORKG-powered dashboards show that these tools can improve relevance and usability. Users find graph-based interfaces helpful for faster understanding and deeper exploration \cite{lezhnina2022dashboard}. Knowledge graphs face challenges with data quality, scalability, and performance. However, future technological advancements offer great potential to overcome these barriers. By adopting new tools and methods, digital libraries can create more powerful and intelligent systems. These systems will manage information and actively support discovery, learning, and innovation.
+
+\section{Future Directions}
+\subsection{Knowledge Graph-aware recommendation}
+Research on knowledge graph-based recommendation systems is growing fast. Libraries can use explainable models that protect user privacy using typed relations and community vocabularies.
+
+\subsection{Large Language Model and Knowledge Graph hybrids}
+Large Language Models are good at understanding language, but these need grounding and provenance. Connecting LLMs with the library knowledge graph helps with entity disambiguation, constraint checking, and citation. 
+
+\subsection{Federation across infrastructures}
+GraphQL-based federation can combine ORCID, DataCite, Wikidata, and local knowledge graphs. It creates unified and contextual views that support cross-repository discovery and research analytics.
+
+\subsection{Standards convergence and IIIF expansion}
+IIIF 3.0 uses JSON-LD and Web Annotation, which supports deeper integration with knowledge graphs. Examples include geospatial overlays using GeoJSON-LD and time-based annotations for audiovisual materials. Closer links between IIIF manifests and graph descriptions will enable rich storytelling and scholarly annotation.
+
+\subsection{FAIR-by-design operations}
+Adding FAIR checks to workflows will improve library data quality. It includes persistent identifiers, open vocabularies, and machine-readable licenses. These steps make library data more reusable in research and cultural heritage ecosystems.
+
+\section{Conclusion}
+Knowledge graphs offer the digital libraries with better structural organization, semantic richness and interoperability, and consequently allow the provision of accuracy in discovery, explainable recommendations and combined services to the heterogeneous collections and systems. Web and community standards, such as RDF, OWL, SKOS, SPARQL, JSON-LD, BIBFRAME, EDM, CIDOC CRM, PREMIS and IIIF, reinforce the use of knowledge graphs. The standards provide the sustainability of data over time, allow the creation of sophisticated user interfaces, and the establishment of collaboration at large scales between institutions and networks. Its implementation is based on a series of steps: inventory and normalization of all data, reuse of ontologies of domain and community, alignment with authoritative global identifiers, SHACL validation, and presentation of the knowledge graph in the form of SPARQL, GraphQL and IIIF-based interfaces. Replacing the previous searching that uses keywords with knowledge graphs is a prudent move towards faster accuracy, personalization, and integration of online libraries. They facilitate knowledge networks by allowing connection with knowledge to the various users such as researchers, students and general audiences. It requires significant data preparation, the creation of powerful ontologies and easy technical assimilation with the current infrastructures to be effectively implemented. Despite the existing data quality, heterogeneity, and scalability problems, artificial intelligence, natural language processing, and visual analytics are advancing and can assist in resolving these problems. Lastly, knowledge graphs are a paradigm shift of e-library management. It provides the foundation to intelligent, user-friendly, scalable information systems that transcend traditional archival service to facilitate the creation, discovery and exploration of knowledge to occur. Further investment in technologies, standards, and practices of governance of knowledge graphs will soon form the basis of the next generation digital library.
+
+\begin{thebibliography}{99}
+
+\bibitem{zhang2024review} J.-C. Zhang, A. M. Zain, K.-Q. Zhou, X. Chen, and R.-M. Zhang, “A review of recommender systems based on knowledge graph embedding,” Expert Systems with Applications, vol. 250, p. 123876, Sep. 2024, doi: 10.1016/j.eswa.2024.123876.
+
+\bibitem{wang2019kgat} X. Wang, X. He, Y. Cao, M. Liu, and T.-S. Chua, “KGAT: Knowledge Graph Attention Network for Recommendation,” 2019, doi: 10.48550/ARXIV.1905.07854.
+
+\bibitem{wilkinson2016fair} M. D. Wilkinson et al., “The FAIR Guiding Principles for scientific data management and stewardship,” Sci Data, vol. 3, no. 1, p. 160018, Mar. 2016, doi: 10.1038/sdata.2016.18.
+
+\bibitem{heidari2021federation} G. Heidari, A. Ramadan, M. Stocker, and S. Auer, “Leveraging a Federation of Knowledge Graphs to Improve Faceted Search in Digital Libraries,” 2021, arXiv. doi: 10.48550/ARXIV.2107.05447.
+
+\bibitem{hahn2020data} J. Hahn, “Data reuse in linked data projects: a comparison of Alma and Share-VDE BIBFRAME networks,” The Code4Lib Journal, no. 49, Aug. 2020. Available: \url{https://journal.code4lib.org/articles/15424}
+
+\bibitem{auer2024orkg} S. Auer, V. Ilangovan, M. Stocker, L. Vogt, and S. Tiwari, Eds., Open research knowledge graph, First edition. Göttingen: Cuvillier Verlag, 2024.
+
+\bibitem{iiif2025} “IIIF APIs Documentation - Europeana Knowledge Base - Confluence.” Accessed: Aug. 23, 2025. Available: \url{https://europeana.atlassian.net/wiki/spaces/EF/pages/1627914244/IIIF+APIs+Documentation}
+
+\bibitem{isaac2013europeana} A. Isaac and B. Haslhofer, “Europeana Linked Open Data – data. Europeana.eu," Semantic Web, vol. 4, no. 3, pp. 291–297, 2013, doi: 10.3233/SW-120092.
+
+\bibitem{iiifapi} “API Specifications - International Image Interoperability FrameworkTM.” Accessed: Aug. 23, 2025. Available: \url{https://iiif.io/api/}
+
+\bibitem{ji2020survey} S. Ji, S. Pan, E. Cambria, P. Marttinen, and P. S. Yu, “A Survey on Knowledge Graphs: Representation, Acquisition and Applications,” 2020, doi: 10.48550/ARXIV.2002.00388.
+
+\bibitem{hogan2022kg} A. Hogan et al., “Knowledge Graphs,” ACM Comput. Surv. vol. 54, no. 4, pp. 1–37, May 2022, doi: 10.1145/3447772.
+
+\bibitem{haris2021federating} M. Haris, K. E. Farfar, M. Stocker, and S. Auer, “Federating Scholarly Infrastructures with GraphQL,” 2021, arXiv. doi: 10.48550/ARXIV.2109.05857.
+
+\bibitem{xue2022quality} B. Xue and L. Zou, “Knowledge Graph Quality Management: a Comprehensive Survey,” IEEE Trans. Knowl. Data Eng., pp. 1–1, 2022, doi: 10.1109/TKDE.2022.3150080.
+
+\bibitem{rdf11} “RDF 1.1 Concepts and Abstract Syntax.” Accessed: Aug. 23, 2025. Available: \url{https://www.w3.org/TR/rdf11-concepts/}
+
+\bibitem{lezhnina2022dashboard} O. Lezhnina, G. Kismihók, M. Prinz, M. Stocker, and S. Auer, “A Scholarly Knowledge Graph-Powered Dashboard: Implementation and User Evaluation,” Front. Res. Metr. Anal., vol. 7, p. 934930, Jul. 2022, doi: 10.3389/frma.2022.934930.
+
+\end{thebibliography}
+
+\end{document}
